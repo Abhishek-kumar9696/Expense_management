@@ -6,6 +6,7 @@ import { Form, Input, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from '../components/Spinner.js';
+const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 const Register = () => {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Register = () => {
     const submitHandler = async (values) => {
         try {
             setLoading(true);
-            await axios.post('/users/register', values);
+            await axios.post(`${backendURL}/api/v1/users/register`, values);
             message.success('Registration Successful');
             setLoading(false);
             navigate('/login');

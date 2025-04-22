@@ -5,7 +5,7 @@ import { Progress } from 'antd'
 
 const Analytics = ({ allTransactions }) => {
     //category
-    const categories = ['Salary', 'Food', 'Bills', 'Movie', 'Medical', 'Tax']
+    // const categories = ['Salary', 'Food', 'Bills', 'Movie', 'Medical', 'Tax']
 
     // total transactions
     const totalTransactions = allTransactions.length

@@ -3,6 +3,10 @@ import { Form, Input, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from '../components/Spinner.js';
+const backendURL = process.env.REACT_APP_BACKEND_URL;
+
+
+
 
 const Login = () => {
     const [loading, setLoading] = useState(false);
@@ -12,7 +16,8 @@ const Login = () => {
     const submitHandler = async (values) => {
         try {
             setLoading(true);
-            const { data } = await axios.post('/users/login', values);
+            const { data } = await axios.post(`${backendURL}/api/v1/users/login`, values);
+            console.log(data);
             setLoading(false);
             message.success('Login success');
             localStorage.setItem('user', JSON.stringify({ ...data.user, password: '' }));
